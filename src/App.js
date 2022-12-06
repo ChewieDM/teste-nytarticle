@@ -46,9 +46,9 @@ const App = () => {
     web_url, 
     _id} = article
     return (
-      <a href={web_url}>
+      <a href={web_url} style={{textDecoration: 'none'}}>
       <article
-      className="bg-white py-5 px-5 rounded-lg" 
+      className="bg-secondary py-5 px-5 rounded-lg text-white" 
       key= {_id}
       > 
       <h2 className="font-bold text-2xl mb-2">{main}</h2>
