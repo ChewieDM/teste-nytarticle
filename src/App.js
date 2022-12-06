@@ -1,38 +1,41 @@
 import React, {useState, useEffect} from "react";
 import FilterForm from "./FilterForm";
+import ShowForm from "./ShowForm";
 
 const App = () => {
   const [articles, setArticles] = useState([]) //array para alocar o dado posteriormente
   const [nameArticle, setnameArticle] = useState('')
   const [isLoading, setIsLoading] = useState(true)
-  const [page, setPage] = useState('10')
+  const [show, setShow] = useState('10')
 
   useEffect(() => {
     const fetchArticles = async () => { 
     try {
       const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${nameArticle}&api-key=aPCIboE0uAL5Ru4VHiZUZ9Np8qck50SV`) //acessa a API com a chave e uma query que pode ser definida
       const articles = await res.json()
-      setArticles(articles.response.docs) //preenche o array criado com o retorno JSON (docs) da API
-      console.log(articles.response.docs);
-      setIsLoading(false)
+      setArticles(articles.response.docs.slice(0, show)) //preenche o array criado com o retorno JSON (docs) da API, utilizando o Slice, para poder determinar a quantidade de artigos mostrados por vez
+      console.log(articles.response.docs); //log para checar se o acima funciona
+      setIsLoading(false) //determina o loading pra falso quando a pagina está carregada
     } 
     catch (error) {
       console.log(error);
     }
   }
   fetchArticles()
-  }, [nameArticle])
+  }, [nameArticle, show]) //apoio para a função
 
     return (
 <>
 <div className="showcase">
   <div className="overlay">
     <h1 className="text-white text-center mt-5">Mostrando Artigo Sobre: <br></br> {nameArticle} </h1>
-    <FilterForm searchText={(text) => setnameArticle(text)}/>
+    <FilterForm searchText={(text) => setnameArticle(text)}/> 
+    <ShowForm searchShow={(show) => setShow(show)}/>
   </div>
 </div>
   {isLoading ? <h1 className="text-center mt-20 font-bold text8xl text-white">Loading...</h1> : <section className="grid grid-cols-1 gap-10 px-5 pt-10 pb-20">
-  {articles.map((article) => {
+  { articles.map((article) => {
+    articles.slice(0, 5)
     const {
     abstract, 
     headline: {main}, 
