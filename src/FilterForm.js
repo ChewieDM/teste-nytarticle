@@ -9,12 +9,12 @@ const FilterForm = ({searchText}) => {
         searchText(text)
     }
 
-  return (
+  return ( //retorna a div com o conteudo para mostrar na pagina
     <div>
     <form onSubmit={handleSubmit}>
         <input
         type="text" 
-        placeholder="e.g politics" 
+        placeholder="e.g crimes" 
         className="py-1 px-2 rounded-l-lg" 
         onChange={(e) => setText(e.target.value)}
         />
