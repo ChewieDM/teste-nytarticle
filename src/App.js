@@ -3,7 +3,7 @@ import FilterForm from "./FilterForm";
 
 const App = () => {
   const [articles, setArticles] = useState([]) //array para alocar o dado posteriormente
-  const [nameArticle, setnameArticle] = useState('everything')
+  const [nameArticle, setnameArticle] = useState('')
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -26,11 +26,11 @@ const App = () => {
 <>
 <div className="showcase">
   <div className="overlay">
-    <h1>Mostrando Artigo sobre: {nameArticle} </h1>
+    <h1 className="text-white text-center mt-5">Mostrando Artigo Sobre: <br></br> {nameArticle} </h1>
     <FilterForm searchText={(text) => setnameArticle(text)}/>
   </div>
 </div>
-  {isLoading ? <h1 className="text-center mt-20 font-bold text8xl">Loading...</h1> : <section className="grid grid-cols-1 gap-10 px-5 pt-10 pb-20">
+  {isLoading ? <h1 className="text-center mt-20 font-bold text8xl text-white">Loading...</h1> : <section className="grid grid-cols-1 gap-10 px-5 pt-10 pb-20">
   {articles.map((article) => {
     const {
     abstract, 
