@@ -5,6 +5,7 @@ const App = () => {
   const [articles, setArticles] = useState([]) //array para alocar o dado posteriormente
   const [nameArticle, setnameArticle] = useState('')
   const [isLoading, setIsLoading] = useState(true)
+  const [page, setPage] = useState('10')
 
   useEffect(() => {
     const fetchArticles = async () => { 
@@ -72,5 +73,4 @@ const App = () => {
 </>
   );
 }
-
 export default App;
