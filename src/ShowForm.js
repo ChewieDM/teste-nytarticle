@@ -9,7 +9,7 @@ const ShowForm = ({searchShow}) => {
         searchShow(show)
     }
 
-  return (
+  return ( //retorna a div com o conteudo para mostrar na pagina (mesma coisa da outra)
     <div>
     <form onSubmit={handleSubmit}>
         <input

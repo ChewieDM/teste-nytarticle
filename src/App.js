@@ -4,9 +4,9 @@ import ShowForm from "./ShowForm";
 
 const App = () => {
   const [articles, setArticles] = useState([]) //array para alocar o dado posteriormente
-  const [nameArticle, setnameArticle] = useState('')
-  const [isLoading, setIsLoading] = useState(true)
-  const [show, setShow] = useState('10')
+  const [nameArticle, setnameArticle] = useState('') //definir o nome do artigo posteriormente
+  const [isLoading, setIsLoading] = useState(true) //definir o loading se é true ou false
+  const [show, setShow] = useState('10') //definir o numero de artigos por pagina posteriormente
 
   useEffect(() => {
     const fetchArticles = async () => { 
@@ -28,14 +28,14 @@ const App = () => {
 <>
 <div className="showcase">
   <div className="overlay">
-    <h1 className="text-white text-center mt-5">Mostrando Artigo Sobre: <br></br> {nameArticle} </h1>
-    <FilterForm searchText={(text) => setnameArticle(text)}/> 
-    <ShowForm searchShow={(show) => setShow(show)}/>
-  </div>
+    <h1 className="text-white text-center mt-5">Showing Articles About: <br></br> {nameArticle} </h1>
+    <FilterForm searchText={(text) => setnameArticle(text)}/>
+    <ShowForm searchShow={(show) => setShow(show)}/> 
+  </div> 
+  
 </div>
   {isLoading ? <h1 className="text-center mt-20 font-bold text8xl text-white">Loading...</h1> : <section className="grid grid-cols-1 gap-10 px-5 pt-10 pb-20">
   { articles.map((article) => {
-    articles.slice(0, 5)
     const {
     abstract, 
     headline: {main}, 
@@ -48,7 +48,7 @@ const App = () => {
     return (
       <a href={web_url}>
       <article
-      className="bg-white py-10 px-5 rounded-lg" 
+      className="bg-white py-5 px-5 rounded-lg" 
       key= {_id}
       > 
       <h2 className="font-bold text-2xl mb-2">{main}</h2>
