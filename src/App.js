@@ -28,9 +28,11 @@ const App = () => {
 <>
 <div className="showcase">
   <div className="overlay">
-    <h1 className="text-white text-center mt-5">Showing Articles About: <br></br> {nameArticle} </h1>
-    <FilterForm searchText={(text) => setnameArticle(text)}/>
-    <ShowForm searchShow={(show) => setShow(show)}/> 
+    <FilterForm searchText={(text) => setnameArticle(text)}/> 
+    <ShowForm searchShow={(show) => setShow(show)}/>
+    <h1 className="text-white text-center mt-1 mb-3"
+    >Showing Articles About: <br></br> {nameArticle} 
+    </h1>
   </div> 
   
 </div>

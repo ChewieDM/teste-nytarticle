@@ -1,13 +1,14 @@
 .showcase {
-  height: 185px;
+  height: 200px;
+  
 }
 
 .showcase .overlay {
-  height: 185px;
+  height: 175px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column-reverse;
+  flex-direction: column;
   font-weight: bold;
-  margin-top: 25px;
+  margin-top: 50px;
 }
