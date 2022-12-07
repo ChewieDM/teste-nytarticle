@@ -16,7 +16,7 @@ const FilterForm = ({searchText}) => {
         <input
         type="text" 
         placeholder="e.g Crimes" 
-        className="py-1 px-2 rounded-l-lg" 
+        className="py-1 px-2 rounded-l-lg text-black" 
         onChange={(e) => setText(e.target.value)}
         />
         <button type="Submit" className="bg-green-400 py-1 px-2 rounded-r-lg text-black">Search</button>

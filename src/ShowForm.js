@@ -16,7 +16,7 @@ const ShowForm = ({searchShow}) => {
         <input
         type="text" 
         placeholder="e.g 1-10" 
-        className="py-1 px-2 rounded-l-lg" 
+        className="py-1 px-2 rounded-l-lg text-black" 
         onChange={(e) => setShow(e.target.value)}
         />
         <button type="Submit" className="bg-green-400 py-1 px-2 rounded-r-lg text-black">Apply Filter</button>
